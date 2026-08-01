@@ -4,7 +4,7 @@
 // 헌법 편 id 규칙: hb01 ~ hbNN (localStorage 키 충돌 방지 위해 한 번 정하면 변경 금지).
 // 총론 → 기본권 → 통치구조 순서로 편을 배열한다.
 window.CHAPTER_LIST = [
-  { id: "hb01", num: 1, title: "헌법 제1편 (헌법총론)",   file: "quizdata-hb01.js", count: 31 },
-  { id: "hb02", num: 2, title: "헌법 제2편 (기본권론)",   file: "quizdata-hb02.js", count: 43 },
-  { id: "hb03", num: 3, title: "헌법 제3편 (통치구조론)", file: "quizdata-hb03.js", count: 69 }
+  { id: "hb01", num: 1, title: "헌법 제1편 (헌법총론)",   file: "quizdata-hb01.js", count: 52 },
+  { id: "hb02", num: 2, title: "헌법 제2편 (기본권론)",   file: "quizdata-hb02.js", count: 82 },
+  { id: "hb03", num: 3, title: "헌법 제3편 (통치구조론)", file: "quizdata-hb03.js", count: 132 }
 ];
