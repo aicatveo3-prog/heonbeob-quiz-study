@@ -564,7 +564,7 @@
 
   function renderHome() {
     var chs = chapters();
-    var lawColor = { "헌법": "#4F46E5", "샘플": "#94A3B8" };
+    var lawColor = { "헌법": "#4F46E5" };
     var listHtml = "", lastLaw = null;
     chs.forEach(function (ch, ci) {
       var law = ch.title.split(" 제")[0];

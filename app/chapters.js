@@ -1,10 +1,10 @@
 // 챕터 목록 — 새 편 추가 시 여기에 항목을 추가하고 quizdata-<id>.js 를 만들면 된다.
 // count 는 홈 화면 진행률 표시에 쓰이므로 실제 문항 수와 일치시켜야 한다.
 //
-// ⚠ 헌법 편 id 규칙: hb01 ~ hbNN (한 번 정하면 localStorage 키 충돌 방지 위해 변경 금지)
-//   현재는 한국사 앱에서 가져온 "형식 참고 샘플" 1개만 등록되어 있다.
-//   헌법 자료를 받아 편을 만들면 아래에 { id:"hbNN", ... } 항목을 추가하고,
-//   샘플(hk01)이 더 이상 필요 없으면 그 줄을 지운다.
+// 헌법 편 id 규칙: hb01 ~ hbNN (localStorage 키 충돌 방지 위해 한 번 정하면 변경 금지).
+// 총론 → 기본권 → 통치구조 순서로 편을 배열한다.
 window.CHAPTER_LIST = [
-  { id: "hk01", num: 0, title: "샘플 제0편 (한국사 선사·형식 참고)", file: "quizdata-hk01.js", count: 82 }
+  { id: "hb01", num: 1, title: "헌법 제1편 (헌법총론)",   file: "quizdata-hb01.js", count: 31 },
+  { id: "hb02", num: 2, title: "헌법 제2편 (기본권론)",   file: "quizdata-hb02.js", count: 43 },
+  { id: "hb03", num: 3, title: "헌법 제3편 (통치구조론)", file: "quizdata-hb03.js", count: 69 }
 ];
