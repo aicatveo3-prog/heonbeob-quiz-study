@@ -217,10 +217,19 @@
     data().forEach(function (q, i) {
       var g = null;
       for (var k = 0; k < groups.length; k++) if (groups[k].name === q.part) { g = groups[k]; break; }
-      if (!g) { g = { name: q.part, items: [] }; groups.push(g); }
+      if (!g) { g = { name: q.part, items: [], _seen: groups.length }; groups.push(g); }
       var item = { gi: i };
       for (var key in q) item[key] = q[key];
       g.items.push(item);
+    });
+    // "PART n" 번호 순으로 정렬(번호 없으면 등장순 유지). 파트 분할 시 논리적 순서를 제어하고,
+    // 이론(theory[partIndex])은 데이터 파일에서 같은 번호 순으로 배열되어 인덱스가 일치한다.
+    groups.sort(function (a, b) {
+      var ma = a.name.match(/^PART\s*(\d+)/), mb = b.name.match(/^PART\s*(\d+)/);
+      var na = ma ? parseInt(ma[1], 10) : Infinity;
+      var nb = mb ? parseInt(mb[1], 10) : Infinity;
+      if (na !== nb) return na - nb;
+      return a._seen - b._seen;
     });
     return groups;
   }
@@ -261,6 +270,7 @@
       localStorage.setItem(sessionKey(), JSON.stringify({
         screen: state.screen,
         partIndex: state.partIndex,
+        nParts: parts().length,   // 파트 구조(개수)가 바뀌면 옛 저장본을 폐기하기 위한 서명
         answers: state.answers
       }));
       localStorage.setItem(LAST_CH_KEY, state.chapterId);
@@ -279,6 +289,8 @@
       if (!validScreens[s.screen]) return null;
       if (!Array.isArray(s.answers) || s.answers.length !== data().length) return null;
       var pCount = parts().length;
+      // 파트 분할 등으로 구조가 바뀐 옛 저장본은 폐기(문항 순서 변경 시 답 인덱스 불일치 방지).
+      if (s.nParts !== pCount) return null;
       var pIdx = typeof s.partIndex === "number" ? s.partIndex : 0;
       if (pIdx < 0 || pIdx >= pCount) pIdx = 0;
       var ans = s.answers.map(function (a) { return a === "O" || a === "X" ? a : null; });
