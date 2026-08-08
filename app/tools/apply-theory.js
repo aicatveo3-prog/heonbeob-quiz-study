@@ -1,6 +1,6 @@
 /* 이론 커버리지 보강 — node tools/apply-theory.js <보강데이터.json> [--dry]
  *
- * 보강데이터.json = { "hk04": [ { part, blocks:[…], compare:[[["키","값"],…]] }, … ], … }
+ * 보강데이터.json = { "hb04": [ { part, blocks:[…], compare:[[["키","값"],…]] }, … ], … }
  *
  * 퀴즈(문항·해설)는 묻는데 THEORY 에 근거가 없는 "떠 있는 문항"을 없애기 위한 보강이다
  * (CLAUDE.md 표준 2 [커버리지]). 각 파일 등록부 바로 앞에 즉시실행 블록을 넣어

@@ -56,7 +56,7 @@ patch("../README.md", function (s) {
   stats.forEach(function (st) {
     s = s.replace(new RegExp("(- 제" + st.num + "편 [^\\n]*? )\\d+문항"), "$1" + st.n + "문항");
   });
-  return s.replace(/한국사 [\d,]+문항/, "한국사 " + total.toLocaleString() + "문항");
+  return s.replace(/헌법 [\d,]+문항/, "헌법 " + total.toLocaleString() + "문항");
 });
 
 console.log(dry ? "=== DRY RUN ===" : "=== 갱신 완료 ===");

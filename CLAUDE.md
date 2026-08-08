@@ -4,7 +4,7 @@
 사용자가 **"N편 해줘"**라고 요청하면 아래 표준에 따라 처리한다. 산출물의 톤·구조는 앱 데이터 형식(`app/quizdata-*.js`)과 아래 표준을 참고한다.
 기출 1회분 반영은 별도 절차다 — **"기출 NN 해줘"**(예: "변호사시험 14회 해줘", "경찰 2024 해줘")는 표준 4를 따른다.
 
-> 이 프로젝트는 한국사 OX 퀴즈 앱(`history-quiz-study`)의 앱 프레임워크와 작업 표준을 그대로 가져와 헌법용으로 재구성한 것이다. 앱 코드(`app/app.js`·`sync.js` 등)와 데이터 형식은 동일하며, 도메인(시대 → 헌법 분야)만 다르다. `app/quizdata-hk01.js`는 데이터 형식(`DATA`/`THEORY`/`CHECKLIST`)을 실물로 참고하기 위한 **형식 참고 샘플**(한국사 선사 편)이다 — 헌법 편이 만들어지면 지운다.
+> 이 프로젝트는 한국사 OX 퀴즈 앱(`history-quiz-study`)의 앱 프레임워크와 작업 표준을 그대로 가져와 헌법용으로 재구성한 것이다. 앱 코드(`app/app.js`·`sync.js` 등)와 데이터 형식은 동일하며, 도메인(시대 → 헌법 분야)만 다르다. 데이터 형식(`DATA`/`THEORY`/`CHECKLIST`)은 기존 편 파일 `app/quizdata-hb01.js` 등을 실물로 참고한다.
 
 ## 저장소 구조
 
@@ -218,7 +218,7 @@ var CHECKLIST = {
 
 앱은 다편 구조다: 홈 = 챕터 목록, 편별 데이터는 지연 로딩, 진행 기록·체크리스트는 챕터별 localStorage 키로 분리되어 있다. 새 편 추가 시:
 
-1. `app/quizdata-<id>.js` 생성 — 파트 상수 선언 후 `var DATA / THEORY / CHECKLIST`를 정의하고 마지막에 `window.QUIZ_CHAPTERS["<id>"] = { data: DATA, theory: THEORY, checklist: CHECKLIST };`로 등록 (형식 참고 샘플 `quizdata-hk01.js` 참고)
+1. `app/quizdata-<id>.js` 생성 — 파트 상수 선언 후 `var DATA / THEORY / CHECKLIST`를 정의하고 마지막에 `window.QUIZ_CHAPTERS["<id>"] = { data: DATA, theory: THEORY, checklist: CHECKLIST };`로 등록 (기존 편 파일 `quizdata-hb01.js` 참고)
 2. `app/chapters.js`의 `CHAPTER_LIST`에 `{ id, num, title, file, count }` 항목 추가 — **count는 실제 문항 수와 일치**시켜야 홈 진행률이 맞다. title은 `"헌법 제N편 (주제)"` 형식
 3. `app/index.html`의 `ASSET_VER` 갱신 (지연 로딩 파일에도 같은 버전이 적용됨)
 4. 앱 코드는 수정 불필요 — 데이터만 추가하면 된다
