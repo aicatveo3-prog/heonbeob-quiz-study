@@ -1,5 +1,5 @@
-/* 지방세 OX 퀴즈 — 독립 실행 정적 사이트 (다장 구조)
- * 챕터 목록은 chapters.js(window.CHAPTER_LIST), 장별 데이터는 quizdata-chNN.js가
+/* 헌법 OX 퀴즈 — 독립 실행 정적 사이트 (다편 구조)
+ * 챕터 목록은 chapters.js(window.CHAPTER_LIST), 편별 데이터는 quizdata-hbNN.js가
  * window.QUIZ_CHAPTERS[id] = { data, theory, checklist } 로 등록하며 지연 로딩된다. */
 (function () {
   "use strict";
@@ -84,7 +84,7 @@
   // ---- state ---------------------------------------------------------------
   var state = {
     screen: "home",   // home | toc | quiz | result | checklist
-    chapterId: null,  // 현재 챕터 id (예: "ch01")
+    chapterId: null,  // 현재 챕터 id (예: "hb01")
     partIndex: 0,
     answers: [],
     theoryOn: (function () {
@@ -189,7 +189,7 @@
   }
 
   // 기출 출처 뱃지 — 문항에 src가 있으면 본문 아래 오른쪽에 작게 표시.
-  // src는 문자열("2026 지방직 9급") 또는 여러 시험이 출제한 경우 배열(["2025 지방직 9급","2024 서울시 7급"])일 수 있다.
+  // src는 문자열("국가직 7급 2024") 또는 여러 시험이 출제한 경우 배열(["국가직 7급 2024","지방직 7급 2023"])일 수 있다.
   // 2회 이상이면 "N회 출제" 빈출 표시를 함께 붙인다.
   function srcBadge(src) {
     if (!src) return "";
@@ -429,7 +429,7 @@
         html += '<div style="font-size:12.5px;font-weight:600;color:' + m.tc + ';line-height:1.6;word-break:keep-all;text-wrap:pretty;white-space:pre-line;">' + esc(fmtTrap(brkPara(b.t))) + '</div>';
       }
       // 대비표(compare) — 헷갈리는 개념을 "맞는 내용"만 나란히 놓는다.
-      // [[["조사 시찰단","일본 파견"],["영선사","청 톈진·무기 기술"]], …] 형태로,
+      // [[["위헌법률심판","법원 제청·구체적 규범통제"],["헌법소원","국민이 직접 청구"]], …] 형태로,
       // 안쪽 배열 하나가 서로 헷갈리는 한 묶음이다. ⭕/❌ 나 "~이면 틀림" 같은
       // 부정형을 쓰지 않아, 읽고 다시 뒤집어 생각할 필요가 없다.
       if (b.compare && b.compare.length) {
@@ -587,7 +587,7 @@
           '<div style="display:flex;align-items:center;gap:9px;padding:' + (lastLaw === null ? "0" : "22px") + ' 6px 11px;">' +
             '<span style="width:8px;height:8px;border-radius:3px;background:' + accent + ';flex-shrink:0;"></span>' +
             '<span style="font-size:13.5px;font-weight:800;color:#1A1D24;">' + esc(law) + '</span>' +
-            '<span style="font-size:11px;font-weight:700;color:#AEB5C4;">' + cnt + '개 장</span>' +
+            '<span style="font-size:11px;font-weight:700;color:#AEB5C4;">' + cnt + '개 편</span>' +
             '<div style="flex:1;height:1px;background:#E7EAF0;"></div>' +
           '</div>';
         lastLaw = law;

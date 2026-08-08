@@ -1,6 +1,6 @@
 /* 기출 회차 반영 — node tools/apply-exam.js <반영데이터.json> <회차라벨> [--dry]
  *
- * 반영데이터.json = { "hk01": { adds:[{part,answer,text,exp,src?}], tags:[needle,…] }, … }
+ * 반영데이터.json = { "hb01": { adds:[{part,answer,text,exp,src?}], tags:[needle,…] }, … }
  *
  * 각 파일 등록부 **바로 앞**에 즉시실행 블록을 넣는다(가장 마지막에 실행되어야
  * 앞선 가지치기·순서 섞기·균형 전환 블록의 결과 위에 얹힌다).

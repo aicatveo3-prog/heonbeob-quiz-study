@@ -1,6 +1,6 @@
 /* 기출 정답 균형 전환 적용 — node tools/apply-balance.js <전환안.json> [--dry]
  *
- * 전환안.json = { "hk01": [ {kind, needle, toNeedle?, newText?, newExp?, newPart?}, … ], … }
+ * 전환안.json = { "hb01": [ {kind, needle, toNeedle?, newText?, newExp?, newPart?}, … ], … }
  *   moveBadge : needle 문항의 src 를 toNeedle 문항으로 옮긴다 (내용 변화 없음)
  *   rewrite   : needle 문항의 text/exp/answer(→X)/part 를 바꾼다 (src 유지)
  *

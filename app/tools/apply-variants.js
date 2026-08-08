@@ -1,6 +1,6 @@
 /* 기출 균형용 ❌ 변형 추가 — node tools/apply-variants.js <변형데이터.json> [--dry]
  *
- * 변형데이터.json = { "hk02": [ {srcNeedle, text, exp}, … ], … }
+ * 변형데이터.json = { "hb04": [ {srcNeedle, text, exp}, … ], … }
  *
  * 각 항목은 "짝 없는 기출 ⭕" 하나에 대응하는 ❌ 변형이다. 적용하면
  *   · 새 ❌ 문항이 같은 파트에 추가되고, 원래 ⭕ 의 src 를 **이어받는다**
